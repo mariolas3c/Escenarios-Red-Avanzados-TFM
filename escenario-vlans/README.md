@@ -211,5 +211,5 @@ h1 (VLAN 10) --> s2 --> s1 -X- s3 --> h3 (VLAN 20)  ✗
 
 ## Autor
 
-Escenario de segmentación VLAN para demostración educativa.
--Mario Gil
+Escenario de segmentación VLAN para demostración educativa.  
+Mario Gil
