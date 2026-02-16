@@ -45,10 +45,6 @@ Este escenario implementa una topología de red con segmentación VLAN que inclu
 ```bash
 # Dar permisos de ejecución
 chmod +x vlan_topology.py
-chmod +x test_vlans.sh
-
-# Ver guía de pruebas
-./test_vlans.sh
 ```
 
 ### 2. Ejecutar la topología
@@ -215,5 +211,5 @@ h1 (VLAN 10) --> s2 --> s1 -X- s3 --> h3 (VLAN 20)  ✗
 
 ## Autor
 
-Mario Gil
 Escenario de segmentación VLAN para demostración educativa.
+-Mario Gil
