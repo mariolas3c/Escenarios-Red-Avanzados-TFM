@@ -6,7 +6,6 @@ Recopilatorio de escenarios de red avanzados desarrollados con **Mininet** como 
 Para ejecutar los distintos escenarios es necesario disponer de una VM con [Mininet](https://mininet.org) instalado. Cada escenario incluye una topología personalizada definida en Python y su propio `README.md` con instrucciones para levantar el entorno y realizar las pruebas.
 
 
-En los distintos escenarios se utilizan topologias personalizadas definidas en python. Van acompañadas de un readme.md que explica la topologia y las pruebas a realizar para probar el entorno.
 
 ## Escenarios
 
