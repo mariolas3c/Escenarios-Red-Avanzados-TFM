@@ -53,9 +53,8 @@ Este escenario implementa una demostración completa de:
 3. **dns_detector.py** - Sistema de detección (IDS)
 4. **dns_defender.py** - Sistema de defensa activa (IPS)
 5. **setup_dns_scenario.sh** - Script de instalación
-6. **test_dns_spoofing.sh** - Script de prueba automático ⭐ NUEVO
-7. **verify_dns_setup.sh** - Script de verificación
-8. **TROUBLESHOOTING_DNS.md** - Guía de solución de problemas
+6. **test_dns_spoofing.sh** - Script de prueba automático 
+
 
 ## Requisitos Previos
 
@@ -204,7 +203,7 @@ Dominios a suplantar:
 
 ### PASO 5: Generar Tráfico DNS y Verificar el Ataque
 
-⚠️ **IMPORTANTE - ENTENDER LA RACE CONDITION:**
+ **IMPORTANTE - ENTENDER LA RACE CONDITION:**
 
 El DNS spoofing es una **competencia de velocidad** entre:
 - El **ATACANTE** que responde con IP falsa (10.0.0.99)
@@ -224,8 +223,8 @@ mininet> client dig @10.0.0.53 www.banco.com +short
 ```
 
 **Resultados posibles:**
-- `10.0.0.99` → ✅ **ATAQUE EXITOSO** (atacante ganó la race)
-- `10.0.0.80` → ⚠️ DNS real respondió primero (ataque falló esta vez)
+- `10.0.0.99` →  **ATAQUE EXITOSO** (atacante ganó la race)
+- `10.0.0.80` →  DNS real respondió primero (ataque falló esta vez)
 
 #### 5.2 Observar en el ATACANTE
 
@@ -360,23 +359,14 @@ Cliente (10.0.0.10)
     |
     +---> DNS Real (10.0.0.53)
     |         |
-    |         +---> Responde: 10.0.0.80 ⚡
+    |         +---> Responde: 10.0.0.80 
     |
     +---> Atacante (10.0.0.66)
               |
-              +---> Responde: 10.0.0.99 ⚡⚡⚡ (x3 veces)
+              +---> Responde: 10.0.0.99 (x3 veces)
     
 Cliente acepta LA PRIMERA RESPUESTA que llegue
 ```
-
-### ⚠️ Por Qué el Ataque NO Siempre Funciona al 100%
-
-**Esto es REALISTA y EDUCATIVO:**
-
-El DNS spoofing es una **race condition** (condición de carrera):
-- 🏃 El atacante intenta ser más rápido
-- 🏃 El DNS real también responde inmediatamente
-- 🎲 Es probabilístico, no determinístico
 
 **Factores que afectan el éxito:**
 1. **Distancia de red**: El atacante está en la misma LAN (ventaja)
@@ -490,7 +480,7 @@ monitor# python3 /tmp/dns_defender.py
 
 ## Interpretación de Resultados
 
-### ✅ Ataque Exitoso
+### Ataque Exitoso
 
 **Síntomas:**
 ```bash
@@ -502,12 +492,12 @@ mininet> client curl http://www.banco.com | grep FALSO
 ```
 
 **Impacto:**
-- ✅ Cliente fue redirigido al servidor malicioso
-- ✅ Vulnerable a phishing
-- ✅ Posible robo de credenciales
-- ✅ IDS debería haber alertado
+- Cliente fue redirigido al servidor malicioso
+- Vulnerable a phishing
+- Posible robo de credenciales
+- IDS debería haber alertado
 
-### ⚠️ Ataque Parcial (Común)
+### Ataque Parcial (Común)
 
 **Síntomas:**
 ```bash
@@ -523,11 +513,11 @@ mininet> client dig @10.0.0.53 www.banco.com +short
 ```
 
 **Interpretación:**
-- ⚡ Race condition en acción
-- 📊 Mide tasa de éxito con múltiples pruebas
-- 🎯 Incluso 30% de éxito es peligroso en la realidad
+-  Race condition en acción
+-  Mide tasa de éxito con múltiples pruebas
+-  Incluso 30% de éxito es peligroso en la realidad
 
-### ❌ Ataque No Funciona
+### Ataque No Funciona
 
 **Posibles causas:**
 
@@ -551,7 +541,7 @@ attacker# tcpdump -i attacker-eth0 port 53 -c 5
 mininet> client systemd-resolve --flush-caches
 ```
 
-### 🔍 IDS Debe Detectar Siempre
+### IDS Debe Detectar Siempre
 
 **Incluso si el ataque falla, el IDS detecta:**
 
@@ -581,9 +571,9 @@ IPs diferentes detectadas:
 
 | Condición | Detección IDS |
 |-----------|---------------|
-| Ataque exitoso | ✅ 100% (ve respuesta falsa) |
-| Ataque fallido | ✅ 100% (ve respuestas duplicadas) |
-| Sin ataque | ✅ 0% (no hay alertas falsas) |
+| Ataque exitoso |  100% (ve respuesta falsa) |
+| Ataque fallido |  100% (ve respuestas duplicadas) |
+| Sin ataque |  0% (no hay alertas falsas) |
 
 ## Troubleshooting
 
@@ -679,9 +669,9 @@ mininet> sh ovs-vsctl list mirror
 ```
 
 4. **Aceptar el resultado realista**:
-- ✅ 30-50% de éxito = **Ataque realista y funcional**
-- ✅ IDS detecta el 100% de los intentos
-- ✅ Demuestra por qué DNSSEC es necesario
+-  30-50% de éxito = **Ataque realista y funcional**
+-  IDS detecta el 100% de los intentos
+-  Demuestra por qué DNSSEC es necesario
 
 ### Problema: IDS no detecta el ataque
 
@@ -737,11 +727,11 @@ mininet> client curl http://10.0.0.99  # FALSO
 
 ## Advertencia Legal
 
-⚠️ **ADVERTENCIA:** Este escenario es solo para propósitos educativos en entornos controlados.
+ **ADVERTENCIA:** Este escenario es solo para propósitos educativos relacionados con mi TFM en entornos controlados.
 Realizar DNS spoofing en redes sin autorización es **ILEGAL** y puede resultar en consecuencias legales graves.
 
 ---
 
-**Autor:** Escenario educativo de seguridad de redes  
+**Autor:** Mario Gil  
 **Versión:** 1.0  
 **Fecha:** 2026
