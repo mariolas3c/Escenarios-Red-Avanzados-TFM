@@ -310,17 +310,17 @@ VICTIMS = ["192.168.1.10", "192.168.1.50"]
 
 ### Indicadores de Ataque Exitoso
 
-1. ✅ Tabla ARP de la víctima muestra MAC incorrecta
-2. ✅ IDS detecta y alerta sobre cambios de MAC
-3. ✅ Tráfico de la víctima pasa por el atacante
-4. ✅ El atacante puede interceptar/modificar tráfico
+1. Tabla ARP de la víctima muestra MAC incorrecta
+2. IDS detecta y alerta sobre cambios de MAC
+3. Tráfico de la víctima pasa por el atacante
+4. El atacante puede interceptar/modificar tráfico
 
 ### Indicadores de Defensa Exitosa
 
-1. ✅ Detección inmediata del ataque
-2. ✅ ARPs correctivos enviados automáticamente
-3. ✅ Tabla ARP restaurada en segundos
-4. ✅ Log de ataques bloqueados
+1. Detección inmediata del ataque
+2. ARPs correctivos enviados automáticamente
+3. Tabla ARP restaurada en segundos
+4. Log de ataques bloqueados
 
 ## Logs Generados
 
@@ -386,7 +386,7 @@ sudo pip3 install scapy
 
 ## Advertencia Legal
 
-⚠️ **ADVERTENCIA:** Este escenario es solo para propósitos educativos en entornos controlados. 
+**ADVERTENCIA:** Este escenario es solo para propósitos educativos en entornos controlados. 
 Realizar ARP spoofing en redes sin autorización es **ILEGAL** y puede resultar en consecuencias legales graves.
 
 ---
