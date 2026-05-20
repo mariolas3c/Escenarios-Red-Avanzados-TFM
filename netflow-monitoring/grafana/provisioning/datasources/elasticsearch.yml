@@ -1,0 +1,17 @@
+apiVersion: 1
+
+datasources:
+  - name: Elasticsearch-NetFlow
+    type: elasticsearch
+    uid: elasticsearch-netflow
+    access: proxy
+    url: http://elasticsearch:9200
+    database: netflow-flows*
+    jsonData:
+      timeField: "@timestamp"
+      esVersion: "8.0.0"
+      maxConcurrentShardRequests: 5
+      logMessageField: ""
+      logLevelField: ""
+    isDefault: true
+    editable: true
