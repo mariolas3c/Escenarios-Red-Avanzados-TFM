@@ -17,3 +17,8 @@ Para ejecutar los distintos escenarios es necesario disponer de una VM con [Mini
 | [`port-scanning`](./port-scanning) | Reconocimiento de red mediante técnicas de escaneo de puertos con herramientas como Nmap. |
 | [`sdn-openflow`](./sdn-openflow) | Redes definidas por software usando el protocolo OpenFlow y un controlador SDN. |
 | [`waf-modsecurity`](./waf-modsecurity) | Despliegue de un Web Application Firewall basado en ModSecurity para detección y bloqueo de ataques web. |
+| [`netflow-monitoring`](./netflow-monitoring) | Monitorización completa de tráfico de red usando NetFlow v5/v9, OpenSearch y Grafana.  |
+| [`wifi-attacks`](./wifi-attacks) | Este escenario implementa una demostración completa de tres ataques clásicos sobre redes WiFi 802.11 : Ataque de Desautenticación (Deauth Flood), Evil Twin/Rogue AP y WEP Cracking |
+| [`bgp-hijacking`](./bgp-hijacking) | Escenario que reproduce un BGP hijacking sobre una internet en miniatura montada con Mininet. |
+
+### Autor: Mario Gil Martínez
