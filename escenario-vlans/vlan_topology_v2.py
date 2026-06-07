@@ -133,11 +133,15 @@ def configureVLANs(s1, s2, s3, s4):
     s4.cmd('ovs-vsctl set port s4-eth3 tag=30')  # access h6
     info('    [OK] s4-eth1: TRUNK, s4-eth2/3: ACCESS VLAN 30\n')
     
-    # Limpiar MAC learning tables para asegurar que las VLANs funcionen
-    info('  === Limpiando tablas MAC ===\n')
+    # Limpiar SOLO la tabla MAC (FDB), NO los flujos OpenFlow.
+    # OJO: 'ovs-ofctl del-flows' borraria el flujo 'NORMAL' que el modo
+    # standalone instala por defecto y dejaria al switch sin reenviar nada
+    # (todos los pings darian "Destination Host Unreachable").
+    # Para vaciar el aprendizaje de MACs se usa 'ovs-appctl fdb/flush'.
+    info('  === Limpiando tablas MAC (FDB) ===\n')
     for switch in [s1, s2, s3, s4]:
-        switch.cmd('ovs-ofctl del-flows ' + switch.name)
-    
+        switch.cmd('ovs-appctl fdb/flush ' + switch.name)
+
     time.sleep(1)
 
 def verifyVLANConfig(s1, s2, s3, s4):
