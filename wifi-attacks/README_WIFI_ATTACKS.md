@@ -345,7 +345,7 @@ estaciones, por lo que la reconexión no es automática. El script muestra el
 comando al finalizar. Para reconectar manualmente:
 
 ```
-mininet> sta1 iw dev sta1-wlan0 connect RedInsegura 2437 <MAC_AP> key 0:d:AABBCCDDEE
+mininet> sta1 iw dev sta1-wlan0 connect RedInsegura 2437 <MAC_AP> key d:0:AABBCCDDEE
 ```
 
 Verificar reconexión:
@@ -708,7 +708,7 @@ sudo modprobe mac80211_hwsim radios=5
    ```
 3. Reconectar una estación manualmente (`wpa_cli` no está disponible en este entorno):
    ```
-   mininet> sta1 iw dev sta1-wlan0 connect RedInsegura 2437 <MAC_AP> key 0:d:AABBCCDDEE
+   mininet> sta1 iw dev sta1-wlan0 connect RedInsegura 2437 <MAC_AP> key d:0:AABBCCDDEE
    ```
 
 ### airodump-ng no ve paquetes del AP

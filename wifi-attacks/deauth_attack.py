@@ -130,7 +130,7 @@ def print_reconnect_hint(args):
     print('-'*65)
     print('  Para reconectar la victima tras el ataque:')
     print('  mininet> sta1 iw dev sta1-wlan0 connect RedInsegura 2437 \\')
-    print('             %s key 0:d:AABBCCDDEE' % args.bssid.upper())
+    print('             %s key d:0:AABBCCDDEE' % args.bssid.upper())
     print('-'*65)
 
 

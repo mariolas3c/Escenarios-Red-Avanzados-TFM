@@ -158,7 +158,7 @@ def print_scenario_info(ap1, sta1, sta2, attacker):
     info('      mininet> attacker python3 /tmp/deauth_attack.py \\\n')
     info('                 --bssid %s --client %s --hwsim\n' % (ap_mac, s1_mac))
     info('      # Reconectar tras el ataque:\n')
-    info('      mininet> sta1 iw dev sta1-wlan0 connect %s 2437 %s key 0:d:%s\n' % (SSID, ap_mac, WEP_KEY))
+    info('      mininet> sta1 iw dev sta1-wlan0 connect %s 2437 %s key d:0:%s\n' % (SSID, ap_mac, WEP_KEY))
     info('\n')
     info('  [2] Evil Twin (AP falso mismo SSID + phishing)\n')
     info('      mininet> attacker python3 /tmp/evil_twin.py \\\n')
